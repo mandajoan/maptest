@@ -100,18 +100,22 @@ class Test extends React.Component {
 
 
     }
-  
+
 
 
     toggleCountySelect(evt) {
-        const config = this.state.chartConfig
-        this.setState(prevState => ({
-            config: {
-                ...prevState.chartConfig,
-                series[2]:{
-                visible: !true
-            }}
-        }))
+      this.setState(prevState => ({
+          chartConfig: {
+              ...prevState.chartConfig,
+              series: [
+                  ...prevState.chartConfig.series.filter((el, index) => index != 2),
+                  {
+                      ...prevState.chartConfig.series[2],
+                      visible: !prevState.chartConfig.series[2].visible
+                  }
+              ]
+          }
+      }))
     }
 
 
@@ -135,7 +139,7 @@ class Test extends React.Component {
 }
 
     render() {
-        
+
         return (
             <div id="container">
                 <ReactHighmaps config={this.state.chartConfig} ref="chart" />
