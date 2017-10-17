@@ -2,10 +2,10 @@
 
 #### Technologies used:
 
-..* React
+* React
 
-..* Highcharts (Highmaps)
+* Highcharts (Highmaps)
 
-..* React-Highcharts
+* React-Highcharts
 
 and will be implementing Redux for state management
